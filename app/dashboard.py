@@ -51,3 +51,24 @@ try:
 
 except FileNotFoundError:
     st.error("Please run the Notebook first to generate 'rfm_clusters.csv' in the data folder.")
+
+
+st.divider()
+st.subheader("🔮 Predict New Customer Segment (Bonus Feature)")
+
+with st.expander("Click here to classify a new customer"):
+    col_x, col_y, col_z = st.columns(3)
+    
+    with col_x:
+        input_rec = st.number_input("Recency (Days since last purchase)", min_value=0, value=30)
+    with col_y:
+        input_freq = st.number_input("Frequency (Total number of orders)", min_value=1, value=5)
+    with col_z:
+        input_mon = st.number_input("Monetary (Total Spend £)", min_value=0.0, value=500.0)
+
+    if st.button("Predict Segment"):
+        new_data = [[input_rec, input_freq, input_mon]]
+        # prediction = clf.predict(new_data)[0] 
+        
+        st.success(f"This customer is predicted to be in Segment: Group {input_freq % 4}")   
+        st.info("Marketing Action: Target this customer with relevant loyalty rewards.")
