@@ -27,4 +27,4 @@ This project applies Data Mining techniques to segment customers of an online re
 
 ## How to Run
 1. Install dependencies: `pip install -r requirements.txt`
-2. Run the dashboard: `streamlit run app/app.py`
+2. Run the dashboard: `python3 -m streamlit run app/dashboard.py`
